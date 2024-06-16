@@ -1,0 +1,35 @@
+<div>
+  <div>
+    <div>
+      <button>Back</button>
+      <button>Next</button>
+      <input placeholder="page#" />
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Appid</th>
+          <th>Sell Price</th>
+          <th>Listings</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(item of items;track item.name; let i = $index){
+        <tr>
+          <td>{{ i + 1 }}</td>
+          <td>{{ item.market_hash_name }}</td>
+          <td>{{ item.appid }}</td>
+          <td>{{ item.sell_price }}</td>
+          <td>{{ item.sell_listings }}</td>
+          <td><button>Edit</button></td>
+        </tr>
+        } @empty {
+        <p>There are no items.</p>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

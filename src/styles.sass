@@ -1,1 +1,331 @@
-/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/jsoneditor/dist/jsoneditor.min.css"
+
+$red: #be392b
+$grad1: #080709
+$grad2: #4b5549
+
+$star: #e1b47b
+
+@font-face
+  font-family: 'Dense'
+  src: url('./assets/fonts/Dense-Regular.otf') format('truetype'),
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'Aspergit'
+  src: url('./assets/fonts/Aspergit.otf') format('truetype')
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'Josefine'
+  src: url('./assets/fonts/JosefinSans-Regular.ttf') format('truetype')
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'JosefinSans-Thin'
+  src: url('./assets/fonts/JosefinSans-Thin.ttf') format('truetype')
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'PoiretOne'
+  src: url('./assets/fonts/PoiretOne-Regular.ttf') format('truetype')
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'Raleway'
+  src: url('./assets/fonts/Raleway-Thin.ttf') format('truetype')
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'Steiner'
+  src: url('./assets/fonts/SteinerLight.ttf') format('truetype')
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'Draftside'
+  src: url('./assets/fonts/Draftside-Light.otf') format('truetype'),
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'BrassMono'
+  src: url('./assets/fonts/BrassMono-regular.otf') format('truetype'),
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'BrassMono-comfort'
+  src: url('./assets/fonts/BrassMono-regular_comfortable.otf') format('truetype'),
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'BrassMono-cozy'
+  src: url('./assets/fonts/BrassMono-regular_cozy.otf') format('truetype'),
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'CutiveMono'
+  src: url('./assets/fonts/CutiveMono-Regular.ttf') format('truetype'),
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'MytypeRegular'
+  src: url('./assets/fonts/mytypeRedular.ttf') format('truetype'),
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'SmallType'
+  src: url('./assets/fonts/SmallTypeWriting.ttf') format('truetype'),
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'SmallTypeMedium'
+  src: url('./assets/fonts/SmallTypeWritingMedium.ttf') format('truetype'),
+  font-weight: normal
+  font-style: normal
+
+*,
+*::before,
+*::after
+  padding: 0px
+  margin: 0px
+  // box-sizing: inherit
+
+body,html
+  color: white
+  height: 100%
+  width: 100%
+  overflow: hidden
+  a
+    color: white
+  // letter-spacing: 4px
+  // position: relative
+  // font-family: Raleway !important
+  // font-family: PoiretOne !important
+  // font-family: JosefinSans-Thin !important
+  // font-family: Josefine !important
+  // font-family: Aspergit !important
+  // font-family: Dense !important
+  // background: #1a1f25
+  // background: #1c1a1a
+  // background: #050506
+  // background: transparent
+  // background-repeat: no-repeat
+  // box-sizing: border-box
+  // background-size: cover
+  // font-family: BrassMono-cozy
+  // font-family: Draftside
+  // font-family: BrassMono
+  // font-family: BrassMono-comfort
+    font-family: CutiveMono
+  // font-family: SmallType
+  // font-family: SmallTypeMedium
+  // font-family: MytypeRegular
+
+body
+  z-index: -3
+  // background: #050506
+  // background: radial-gradient(ellipse at bottom, #4d4140 0%, #1c1a1a 100%)
+  // background: radial-gradient(ellipse at bottom, #4d4140 0%, #0f0e0e 100%)
+  // background: radial-gradient(ellipse at bottom, #4d4140 0%, #1c1a1a 100%)
+  // background: radial-gradient(ellipse at bottom, #58403e 0%, #0f0e0e 100%)
+  background: radial-gradient(ellipse at bottom, #3e2927 0%, #1c1a1a 100%)
+  // background: radial-gradient(ellipse at bottom, $grad2 0%, $grad1 100%)
+  // background: radial-gradient(ellipse at bottom, #2b1c1a 0%, #0f0e0e 100%)
+  // color: #4d4140
+  // color: #1c1a1a
+
+.button
+  appearance: none
+  text-decoration: none
+  font-family: Steiner
+  font-size: 16px
+  width: 140px
+  height: 40px
+  min-height: 40px
+  color: #d6cebd
+  padding: 12px 14px
+  background-color: #2e2826
+  display: inline-block
+  box-sizing: border-box
+  text-align: center
+  line-height: inherit
+  // line-height: 60%
+  text-rendering: geometricprecision
+  text-transform: none
+  cursor: pointer
+  border-radius: 6px
+  border: 1px solid #837260
+  outline: 0
+  touch-action: manipulation
+  vertical-align: middle
+  outline: 0
+  &:hover,
+  &:active
+    background-color: initial
+    background-position: 0 0
+
+  &:active
+    opacity: 0.5
+
+.inner-table-button
+  text-decoration: none
+  height: 100%
+  width: 100%
+  display: inline-block
+  box-sizing: border-box
+  text-align: center
+  line-height: inherit
+  &:hover,
+  &:active
+    background-color: initial
+    background-position: 0 0
+
+  &:active
+    opacity: 0.5
+
+.input
+  appearance: none
+  text-decoration: none
+  font-family: CutiveMono
+  width: 140px
+  height: 40px
+  min-height: 40px
+  color: #d6cebd
+  padding: 12px 14px
+  background-color: #2e2826
+  outline: 0
+  border-radius: 6px
+  border: 1px solid #837260
+  display: inline-block
+  box-sizing: border-box
+  &:hover,
+  &:active
+    background-color: initial
+    background-position: 0 0
+  &:active
+    opacity: 0.5
+
+.select
+  appearance: none
+  text-decoration: none
+  font-family: CutiveMono
+  width: 140px
+  height: 40px
+  min-height: 40px
+  color: #d6cebd
+  padding: 12px 14px
+  background-color: #2e2826
+  outline: 0
+  border-radius: 6px
+  border: 1px solid #837260
+  display: inline-block
+  box-sizing: border-box
+  cursor: inherit
+  line-height: inherit
+  &::after
+    content: ""
+    width: 0.8em
+    height: 0.5em
+    background-color: red
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%)
+  &:hover,
+  &:active
+    outline: none
+    box-shadow: none
+    // text-decoration: none
+    background-color: initial
+    background-position: 0 0
+  &:active
+    opacity: 0.5
+  option
+    background-color: #2e2826
+    &:hover,
+    &:active
+      outline: none
+      box-shadow: none
+
+// ------------------------------------------------------------------
+
+@function multiple-box-shadow ($n)
+  $value: '#{random(2560)}px #{random(2560)}px #be8976'
+  @for $i from 2 through $n
+    $value: '#{$value} , #{random(2560)}px #{random(2560)}px #be8976'
+
+  @return unquote($value)
+
+$shadows-small: multiple-box-shadow(700)
+$shadows-medium: multiple-box-shadow(200)
+$shadows-big: multiple-box-shadow(100)
+
+#stars
+  width: 1px
+  height: 1px
+  position: absolute
+  background: transparent
+  box-shadow: $shadows-small
+  animation: animStar 50s linear infinite
+  z-index: -2
+  &:after
+    content: " "
+    position: absolute
+    top: 2560px
+    width: 1px
+    height: 1px
+    background: transparent
+    box-shadow: $shadows-small
+    z-index: -2
+
+#stars2
+  width: 2px
+  height: 2px
+  position: absolute
+  background: transparent
+  box-shadow: $shadows-medium
+  animation: animStar 100s linear infinite
+  z-index: -2
+  &:after
+    content: " "
+    position: absolute
+    top: 2560px
+    width: 2px
+    height: 2px
+    background: transparent
+    box-shadow: $shadows-medium
+    z-index: -2
+
+#stars3
+  width: 3px
+  height: 3px
+  position: absolute
+  background: transparent
+  box-shadow: $shadows-big
+  animation: animStar 150s linear infinite
+  z-index: -2
+  &:after
+    content: " "
+    position: absolute
+    top: 2560px
+    width: 3px
+    height: 3px
+    background: transparent
+    box-shadow: $shadows-big
+    z-index: -2
+
+@keyframes animStar
+  from
+    transform: translateY(0px)
+  to
+    transform: translateY(-2560px)

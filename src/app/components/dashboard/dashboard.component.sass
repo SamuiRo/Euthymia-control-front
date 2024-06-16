@@ -1,0 +1,141 @@
+.dashboard-component
+    height: 100%
+    width: 100%
+    border-collapse: collapse
+    display: flex
+    padding: 5px
+
+.active
+    // background: red
+    border-left: 6px double #879f91
+    color: #879f91
+    // .p
+    //     display: block
+    // &::after
+    //     .p
+    //         display: block
+        // content: " 😊"
+
+    // border-left: 10px solid #837260
+
+.sidebar
+    height: 100%
+    width: 10%
+    padding: 0 5px 5px 5px
+    box-sizing: border-box
+    // text-align: center
+    line-height: inherit
+    // background: red
+    display: flex
+    flex-direction: column
+
+.sidebar-menu-route
+    text-decoration: none
+    // color: white
+    font-size: 20px
+    padding: 8px 24px 8px 10px
+    // .active
+    //     content: "asdasd"
+    &:hover
+        background: #837260
+    p
+        display: none
+        // border-bottom: 1px solid #837260
+
+
+
+.sub-menu
+    height: 100%
+    width: 85%
+    // background: blue
+    display: flex
+    flex-direction: column
+    .header
+        padding: 8px 24px 8px 10px
+        font-size: 16px
+        border-left: 1px solid #837260
+        // box-sizing: border-box
+        // text-align: center
+        // line-height: inherit
+
+.sub-menu-service-list
+    display: flex
+    gap: 5px
+
+.sub-menu-service-link
+    // color: yellow
+    text-decoration: none
+    border: 1px solid #837260
+    padding: 8px 24px 8px 10px
+    border-radius: 6px
+
+.dashboard-tweet-generator
+    display: flex
+    flex-direction: column
+
+.dashboard-tweet-generator-body
+    display: flex
+    flex-direction: column
+
+.dashboard-tweet-generator-body-button-bar
+    display: flex
+    // padding: 10px
+    gap: 5px
+    .header
+        // background: blue
+        padding: 8px 24px 8px 10px
+        font-size: 16px
+        border-left: 1px solid #837260
+        box-sizing: border-box
+        text-align: center
+        line-height: inherit
+
+    select
+        color: white
+        padding: 8px 24px 8px 10px
+        border: none
+        border: 1px solid #837260
+        border-radius: 6px
+
+        // border-bottom: 1px Solid red
+        background-color: transparent
+        &:active,
+        &:focus
+            outline: none
+            box-shadow: none
+        option
+            background-color: black
+        // -webkit-appearance: none
+        // -moz-appearance: none
+        // appearance: none
+
+.dashboard-tweet-generator-body-workarea
+    // padding: 10px
+    width: 100%
+
+    textarea
+        width: fit-content
+        background-color: transparent
+        color: white
+        // padding: 5px
+        border: 1px solid #837260
+        &:active,
+        &:focus
+            outline: none
+            box-shadow: none
+
+.dashboard-tweet-form
+    width: 100%
+    form
+        display: flex
+        flex-direction: column
+    textarea
+        width: fit-content
+        background-color: transparent
+        color: white
+        // padding: 5px
+        border: 1px solid #837260
+        &:active,
+        &:focus
+            outline: none
+            box-shadow: none

@@ -1,0 +1,34 @@
+<div class="web3profiles-component">
+  @for (account of accounts; track account.Account; let i = $index) {
+  <div class="web3profiles-component_profile-card">
+    <div class="web3profiles-component_profile-card_content">
+      <p class="web3profiles-component_profile-card_account">
+        {{ account.Account }}
+      </p>
+
+      @if (account.main_evm_address) {
+      <p>EVM</p>
+      } @if (account.main_solana_address) {
+      <p>SOL</p>
+      } @if (account.main_aptos_address) {
+      <p>APT</p>
+      } @if (account.main_sui_address) {
+      <p>SUI</p>
+      }
+    </div>
+    <!-- <button
+      (click)="goToProfile(account)"
+      class="web3profiles-component_profile-card_routerlink"
+    >
+      Go to
+    </button> -->
+    <a
+      routerLink="{{ account.Account }}"
+      class="web3profiles-component_profile-card_routerlink"
+      >->
+    </a>
+  </div>
+  } @empty {
+  <p>No Accounts</p>
+  }
+</div>

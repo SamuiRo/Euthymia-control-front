@@ -1,0 +1,54 @@
+<div class="json-cosmos-component">
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>EVM E</th>
+          <th>Sol E</th>
+          <th>Discord</th>
+          <th>Twitter</th>
+          <th>EVM Address</th>
+          <th>Solana Address</th>
+          <th>Aptos Address</th>
+          <th>Sui Address</th>
+
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let account of accounts; let i = index" class="table-row">
+          <td>{{ i + 1 }}</td>
+          <td (click)="openModal(account)">{{ account.Account }}</td>
+          <td>{{ account.mail }}</td>
+          <td (click)="getAccountEnigma(account.Account, 'main_evm_enigma')">
+            EVM E
+          </td>
+          <td (click)="getAccountEnigma(account.Account, 'main_solana_enigma')">
+            SOL E
+          </td>
+          <td>{{ account.discord_handle }}</td>
+          <td>{{ account.twitter_handle }}</td>
+          <td>{{ account.main_evm_address }}</td>
+          <td>{{ account.main_solana_address }}</td>
+          <td>{{ account.main_aptos_address }}</td>
+          <td>{{ account.main_sui_address }}</td>
+          <td>
+            <button class="inner-table-button" (click)="openModal(account)">
+              Edit
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <app-account-modal
+    *ngIf="isModalOpen"
+    [account]="selectedAccount"
+    (closeModalEvent)="closeModal()"
+    (saveChangesEvent)="saveChanges($event)"
+  ></app-account-modal>
+</div>

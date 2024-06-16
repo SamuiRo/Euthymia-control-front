@@ -1,0 +1,23 @@
+<div class="rubyscore-component">
+  <div class="rubyscore-component_header">
+    <p>Rubyscore</p>
+  </div>
+  <div class="rubyscore-component_body">
+    <select class="select" [(ngModel)]="network">
+      <option disabled selected value="undefined">- Network -</option>
+      @for (network of network_list; track $index) {
+      <option [value]="network.value">{{ network.name }}</option>
+      }
+    </select>
+    <button
+      class="button"
+      (click)="confirmAction()"
+      [disabled]="isRequestInProgress"
+      [ngClass]="{ confirmed: isConfirmed }"
+    >
+      {{ isConfirmed ? "Confirm" : "Vote" }}
+    </button>
+    <!-- {{address}} -->
+  </div>
+</div>
+<!-- <div *ngIf="message">{{ message }}</div> -->

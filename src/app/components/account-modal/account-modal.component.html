@@ -1,0 +1,93 @@
+<div class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h3 class="modal-title">
+          <p>Edit Profile</p>
+          <p>{{ account.Account }}</p>
+        </h3>
+        <!-- <button type="button" class="close" (click)="closeModal()">
+          &times;
+        </button> -->
+        <div class="modal-tabs-block">
+          <button class="button" (click)="changeEditor('Ace')">Ace</button>
+          <button class="button" (click)="changeEditor('Raw')">Raw</button>
+          <button class="button" (click)="changeEditor('Default')">Def</button>
+          <button class="button" (click)="changeEditor('Enigma')">
+            Enigma
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        @if(activeTab === "Ace"){
+        <json-editor
+          [options]="editorOptions"
+          [data]="content"
+          [(ngModel)]="content"
+        ></json-editor>
+        } @if(activeTab === "Raw"){
+        <textarea [(ngModel)]="content"></textarea>
+        } @if(activeTab === "Default"){
+        <json-editor
+          mode="view"
+          [data]="content"
+          [(ngModel)]="content"
+        ></json-editor>
+        } @if(activeTab === "Enigma"){
+        <div class="modal-body_enigma-editor">
+          <div class="modal-body_enigma-editor_row">
+            <input
+              type="password"
+              class="input"
+              placeholder="evm"
+              [(ngModel)]="evm_input"
+            /><button
+              class="button"
+              (click)="addEnigmaToAccount(content.Account, evm_input, 'evm')"
+            >
+              Add
+            </button>
+          </div>
+          <div class="modal-body_enigma-editor_row">
+            <input
+              type="password"
+              class="input"
+              placeholder="solana"
+              [(ngModel)]="solana_input"
+            /><button
+              class="button"
+              (click)="
+                addEnigmaToAccount(content.Account, solana_input, 'solana')
+              "
+            >
+              Add
+            </button>
+          </div>
+        </div>
+        <div
+          class="modal-body_enigma-editor_result-box"
+          [ngClass]="{ confirmed: isConfirmed }"
+        >
+          {{ actionResult }}
+        </div>
+        }
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button class="button" type="button" (click)="saveChanges()">
+          Save
+        </button>
+        <button class="button" type="button" (click)="closeModal()">
+          Close
+        </button>
+        <button class="button" type="button" (click)="applyChanges()">
+          Apply
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

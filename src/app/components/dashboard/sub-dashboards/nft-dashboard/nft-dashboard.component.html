@@ -1,0 +1,107 @@
+<div class="nft-dashboard">
+  <div class="nft-dashboard-service-block">
+    <p class="nft-dashboard-service-block-header">Services</p>
+    <div class="nft-dashboard-service-list">
+      <a href="https://blur.io/" class="nft-dashboard-service-list-link"
+        >Blur</a
+      >
+      <a href="https://opensea.io/" class="nft-dashboard-service-list-link"
+        >OpenSea</a
+      >
+      <a
+        href="https://wax.atomichub.io/"
+        class="nft-dashboard-service-list-link"
+        >AtomicHub</a
+      >
+      <a
+        href="https://www.magiceden.io/marketplace"
+        class="nft-dashboard-service-list-link"
+        >Magic Eden</a
+      >
+      <a
+        href="https://app.holograph.xyz/"
+        class="nft-dashboard-service-list-link"
+        >Holograph</a
+      >
+      <a
+        href="https://www.rareboard.com/"
+        class="nft-dashboard-service-list-link"
+        >Rareboard</a
+      >
+      <a href="https://pro.nansen.ai/" class="nft-dashboard-service-list-link"
+        >Nansen</a
+      >
+    </div>
+  </div>
+  <div class="nft-dashboard-navbar">
+    <input class="input" placeholder="0x0..." [(ngModel)]="address" />
+    <select class="select" [(ngModel)]="selectedNetwork">
+      <option disabled selected value="undefined">- Network -</option>
+      @for (network of networkList; track $index) {
+      <option [value]="network.value">{{ network.name }}</option>
+      }
+    </select>
+    <button class="button" (click)="getNFTsForOwner(address, selectedNetwork)">
+      Get
+    </button>
+    <div class="nft-dashboard-counter">
+      <p>Total:</p>
+      <p>{{ totalNFTCount }}</p>
+    </div>
+    <div>
+      <button (click)="getNFTsForOwner(address, selectedNetwork, pageKey)" class="button">
+        next
+      </button>
+    </div>
+  </div>
+  <div class="nft-dashboard-viewer">
+    <div class="nft-dashboard-viewer_content">
+      @for (nft of NFTViewerList; track nft; let index = $index) {
+      <div class="nft-dashboard-viewer_content-card">
+        <!-- {{ index }} -->
+        <div class="nft-dashboard-viewer_content-card_img-wrapper">
+          @if(nft.raw.metadata.image){
+          <img
+            [src]="nft.raw.metadata.image"
+            class="nft-dashboard-viewer_content-card_img"
+          />
+          }@else {
+          <p>No image</p>
+          }
+        </div>
+        <div>
+          <div>
+            <div>
+              <p>Name:</p>
+              <p class="nft-dashboard-viewer_content-card_name">
+                {{ nft.name }}
+              </p>
+            </div>
+            <div>
+              <p>TokenId:</p>
+              <p class="nft-dashboard-viewer_content-card_tokenid">
+                {{ nft.tokenId }}
+              </p>
+            </div>
+            <div>
+              <p>Symbol:</p>
+              <p class="nft-dashboard-viewer_content-card_symbol">
+                {{ nft.contract.symbol }}
+              </p>
+            </div>
+            <div class="nft-dashboard-viewer_content-card_balance">
+              <p>Balance:</p>
+              <p>{{ nft.balance }}</p>
+            </div>
+          </div>
+        </div>
+        <button class="nft-dashboard-viewer_content-card_button">
+          Full Data
+        </button>
+      </div>
+      } @empty {
+      <div class="nft-dshboard_no-nft">No NFTs</div>
+      }
+    </div>
+  </div>
+</div>

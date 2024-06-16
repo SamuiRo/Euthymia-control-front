@@ -1,0 +1,44 @@
+.table
+    // width: fit-content
+    width: 100%
+    border-collapse: collapse
+    margin-top: 10px
+    color: white
+    overflow-x: auto
+    th,td
+        // border: 1px solid #afafaf
+        border: 1px solid #827160
+        padding: 8px
+        text-align: left
+    td
+        // background-color: #474444
+        max-width: 300px
+        overflow: hidden
+        white-space: nowrap
+        text-overflow: ellipsis
+        &:hover
+            overflow: visible
+            white-space: normal
+            text-overflow: clip
+            background: #000000
+            color: white
+    tbody
+        background: #423830
+        tr:nth-child(2n)
+            background-color: #332922
+
+    .table-row
+        &:hover
+            outline: 1px solid red !important
+    td:last-child
+        position: -webkit-sticky
+        position: sticky
+        right: 0
+    //   background-color: #f2f2f2
+        z-index: 1
+    th
+        position: -webkit-sticky
+        position: sticky
+    //   background-color: #f2f2f2;
+        top: 0
+        z-index: 1

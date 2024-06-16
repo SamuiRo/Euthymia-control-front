@@ -1,0 +1,14 @@
+<div class="database-dashboard-component">
+  <div class="database-dashboard-component_import-block">
+    <p>Import table</p>
+    <button class="button" (click)="importAccounts()">Accounts</button>
+    <button class="button">Tasks</button>
+    <button class="button" (click)="importActivity()">Activity</button>
+    <button class="button" (click)="importRoutine()">Routine</button>
+  </div>
+  <div class="database-dashboard-component_sync-block">
+    <p>Sync DB</p>
+    <button class="button" (click)="DBSync()">Default</button>
+    <button class="button" (click)="fullDBsync()">Full</button>
+  </div>
+</div>

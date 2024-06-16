@@ -1,0 +1,113 @@
+.nft-dashboard
+    display: flex
+    height: 100%
+    width: 100%
+    flex-direction: column
+    gap: 5px
+
+.nft-dashboard-service-block
+    display: flex
+    flex-direction: column
+    gap: 5px
+
+    .nft-dashboard-service-block-header
+        padding: 2px 24px 2px 10px
+        font-size: 20px
+        border-left: 6px double #837260
+
+    .nft-dashboard-service-list
+        display: flex
+        // flex-direction: column
+        gap: 5px
+
+        .nft-dashboard-service-list-link
+            text-decoration: none
+            display: inline-block
+            box-sizing: border-box
+            text-align: center
+            line-height: inherit
+            border: 1px solid #837260
+            padding: 8px 24px 8px 10px
+            border-radius: 6px
+            width: 160px
+            height: 40px
+            color: #bdb3a7
+
+.nft-dashboard-navbar
+    display: flex
+    width: 100%
+    gap: 5px
+    .nft-dashboard-counter
+        display: flex
+        gap: 5px
+        align-items: center
+        font-size: 16px
+        // justify-content: end
+
+.nft-dashboard-viewer
+    flex-direction: column
+
+.nft-dashboard-viewer_bar
+
+.nft-dashboard-viewer_content
+    display: flex
+    gap: 5px
+    flex-wrap: wrap
+    .nft-dshboard_no-nft
+        display: flex
+        width: 100%
+        justify-content: center
+
+.nft-dashboard-viewer_content-card
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+
+    height: 280px
+    width: 10%
+    padding: 5px
+    // gap: 5px
+    border: 1px solid #837260
+    // display: flex
+    .nft-dashboard-viewer_content-card_img
+        height: 100px
+        width: 100px
+    .nft-dashboard-viewer_content-card_img-wrapper
+        display: flex
+        align-items: center
+        justify-content: center
+    .nft-dashboard-viewer_content-card_name,
+    .nft-dashboard-viewer_content-card_tokenid,
+    .nft-dashboard-viewer_content-card_symbol,
+    .nft-dashboard-viewer_content-card_balance
+        overflow: hidden
+        white-space: nowrap
+        text-overflow: ellipsis
+        &:hover
+            overflow: visible
+            // white-space: normal
+            text-overflow: clip
+            background: #000000
+            // border: 1px solid
+            color: white
+            // z-index: 2
+    .nft-dashboard-viewer_content-card_balance
+        display: flex
+        gap: 5px
+
+    .nft-dashboard-viewer_content-card_button
+        text-decoration: none
+        color: #d6cebd
+        background-color: #2e2826
+        text-align: center
+        line-height: inherit
+        text-rendering: geometricprecision
+        text-transform: none
+        outline: 0
+        &:hover,
+        &:active
+            background-color: initial
+            background-position: 0 0
+
+        &:active
+            opacity: 0.5

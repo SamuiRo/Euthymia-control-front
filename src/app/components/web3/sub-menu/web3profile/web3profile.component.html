@@ -1,0 +1,118 @@
+<div class="web3profile-component">
+  <div class="web3profile-component_header">
+    <p
+      class="web3profile-component_header_profile-name"
+      [style.color]="textToColor(target_account.name)"
+    >
+      {{ target_account.name }}
+    </p>
+    @if (target_account) {
+    <!-- <input [type]="inputType" (mouseover)="showPassword()" (mouseout)="hidePassword()" [value]="target_account.main_evm_address" class="input" /> -->
+    }
+
+    <p>{{ target_account.main_evm_address }}</p>
+  </div>
+
+  <div class="web3profile-component_body">
+    <!-- <div>
+      <select class="select" [(ngModel)]="target_network">
+        <option disabled selected value="undefined">- Network -</option>
+        @for (network of network_list; track $index) {
+        <option [value]="network.value">{{ network.name }}</option>
+        }
+      </select>
+      <button
+        class="button"
+        (click)="getBalance(target_account.main_evm_address, target_network)"
+      >
+        ->
+      </button>
+    </div> -->
+    <div class="web3profile-component_link-list">
+      @for(activity of activity_list; track $index){
+      <a
+        [href]="activity.url"
+        class="web3profile-component_link"
+        target="_blank"
+        >{{ activity.name }}</a
+      >
+      }
+    </div>
+    <div class="web3profile-component_gas-balance">
+      <div class="web3profile-component_gas-balance_result">
+        <p>Gas Balance:</p>
+        @if (gas_balance) {
+        <p>{{ gas_balance.balance }}</p>
+        }
+      </div>
+      <div class="web3profile-component_gas-balance_network-select">
+        <p>Network</p>
+        <select class="select" [(ngModel)]="target_network">
+          <option disabled selected value="undefined">- Network -</option>
+          @for (network of network_list; track $index) {
+          <option [value]="network.value">{{ network.name }}</option>
+          }
+        </select>
+
+        <button
+          class="button"
+          (click)="
+            getGasBalance(target_account.main_evm_address, target_network)
+          "
+        >
+          ->
+        </button>
+      </div>
+    </div>
+
+    <div class="web3profile-component_module-list">
+      <div class="web3profile-component_module-list_header">
+        <p>Module</p>
+      </div>
+      <div class="web3profile-component_module-list_body">
+        <!-- <div class="web3profile-component_module-list_card">
+          <app-rubyscore
+            class="web3profile-component_module-list_card"
+            [address]="target_account.main_evm_address"
+          ></app-rubyscore>
+        </div>
+        <div class="web3profile-component_module-list_card">
+          <app-rubyscore
+            [address]="target_account.main_evm_address"
+          ></app-rubyscore>
+        </div> -->
+        <!-- <app-rubyscore
+          class="web3profile-component_module-list_card"
+          [address]="target_account.main_evm_address"
+        ></app-rubyscore>
+        <app-rubyscore
+          class="web3profile-component_module-list_card"
+          [address]="target_account.main_evm_address"
+        ></app-rubyscore>
+        <app-rubyscore
+          class="web3profile-component_module-list_card"
+          [address]="target_account.main_evm_address"
+        ></app-rubyscore> -->
+        <!-- <div class="web3profile-component_module-list_card">
+          <app-syncswap></app-syncswap>
+        </div> -->
+
+        <!-- <div class="web3profile-component_module-list_card">
+          <p class="web3profile-component_module-list_card_header">Ruby</p>
+          <div class="web3profile-component_module-list_card_body">
+            <select class="select"></select>
+            <button
+              class="button"
+              (click)="rubyscoreVote(target_account.main_evm_address, 'scroll')"
+            >
+              Vote
+            </button>
+          </div>
+        </div> -->
+        <!-- <div class="web3profile-component_module-list_card">
+          <p class="web3profile-component_module-list_card_header">SyncSwap</p>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>

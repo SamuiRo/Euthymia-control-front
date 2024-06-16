@@ -1,0 +1,14 @@
+<div class="notification-container">
+  <div
+    *ngFor="let notification of notifications; let i = index"
+    [@slideIn]
+    class="notification"
+    [ngClass]="notification.type"
+    (click)="removeNotification(notification)"
+  >
+    <div class="gold-background"></div>
+    <div class="black-background">
+      <p>{{ notification.message }}</p>
+    </div>
+  </div>
+</div>

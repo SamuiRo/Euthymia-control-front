@@ -1,0 +1,78 @@
+<div class="sub-menu">
+  <div class="sub-menu-block">
+    <p class="sub-menu-header">Services</p>
+    <div class="sub-menu-service-list">
+      <!-- <div class="sub-menu-service-link-block"> -->
+      <a href="https://twitterscore.io/" class="sub-menu-service-link"
+        >TwitterScore</a
+      >
+      <!-- </div> -->
+
+      <!-- <div class="sub-menu-service-link-block"> -->
+      <a href="https://www.tweetscout.io/" class="sub-menu-service-link"
+        >TwitterScout</a
+      >
+      <!-- </div> -->
+      <!-- <div class="sub-menu-service-link-block"> -->
+      <a href="https://botometer.osome.iu.edu/" class="sub-menu-service-link"
+        >Botometer</a
+      >
+      <!-- </div> -->
+    </div>
+  </div>
+  <div class="dashboard-tweet-generator">
+    <div class="dashboard-tweet-generator-body">
+      <div class="dashboard-tweet-generator-body-button-bar">
+        <p class="header">New Tweet:</p>
+        <select
+          [(ngModel)]="selectedTweetCategory"
+          [value]="defaultOption"
+          class="select"
+        >
+          <option disabled selected value="undefined">- Project -</option>
+          @for (tweetCategory of tweetsCategoryOptions; track $index) {
+          <option [value]="tweetCategory.value">
+            {{ tweetCategory.label }}
+          </option>
+          }
+        </select>
+        <button
+          class="button"
+          (click)="getRandomTweetForCategory(selectedTweetCategory)"
+        >
+          Generate
+        </button>
+        <button class="button">Copy</button>
+      </div>
+
+      <div class="dashboard-tweet-generator-body-workarea">
+        <textarea
+          placeholder="Your tweet here..."
+          [(ngModel)]="tweetContent"
+        ></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="dashboard-tweet-form">
+    <form>
+      <div>
+        <p class="header">Add to DB:</p>
+        <select
+          [(ngModel)]="selectedTweetCategory"
+          [value]="defaultOption"
+          class="select"
+        >
+          <!-- <option value="" disabled selected>Choose...</option> -->
+          <option disabled selected value="undefined">- Project -</option>
+          @for (tweetCategory of tweetsCategoryOptions; track $index) {
+          <option [value]="tweetCategory.value">
+            {{ tweetCategory.label }}
+          </option>
+          }
+        </select>
+        <button class="button">Add</button>
+      </div>
+      <textarea placeholder="Your tweet here..."></textarea>
+    </form>
+  </div>
+</div>

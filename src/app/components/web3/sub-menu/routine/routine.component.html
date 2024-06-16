@@ -1,0 +1,23 @@
+<!-- <p>routine works!</p> -->
+<div class="routine-list-component">
+  @for (item of routine_list; track $index) {
+  <div class="routine-list-component_element-card">
+    <!-- <P> {{item.name}}</P> -->
+    <!-- <img [src]="getFaviconUrl(item.url)"> -->
+
+    <a
+      [href]="item.url"
+      class="routine-list-component_element-card-link"
+      target="_blank"
+      >{{ item.name }}</a
+    >
+    <div>
+      <p>{{ item.rate }}</p>
+      <!-- <p></p> -->
+    </div>
+    <!-- <p>Detailed</p> -->
+  </div>
+  } @empty {
+  <div>Empty</div>
+  }
+</div>
