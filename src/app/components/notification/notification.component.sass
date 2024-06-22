@@ -10,41 +10,51 @@
     // background: red
 
 .notification
+    display: flex
+    flex-direction: column
     min-width: 250px
-    // width: 100%
-    // min-width: 100%
+    max-width: 250px
     min-height: 80px
     position: relative
-    display: flex
-    align-items: center
     cursor: pointer
+    color: #c3baaa
+    background-color: #272220
+    border: 1px solid #96816a
+    border-radius: 6px
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7)
+    padding: 5px
+    .notification-header
+        height: 20px
+    .notification-body
+        display: flex
+        flex-wrap: wrap
 
 .gold-background
-    background-color: gold
-    width: 100%
-    height: 100%
-    position: absolute
-    top: 0
-    left: 0
-    z-index: 1
+    // background-color: gold
+    // width: 100%
+    // height: 100%
+    // position: absolute
+    // top: 0
+    // left: 0
+    // z-index: 1
 
 .black-background
 
-    background-color: black
-    color: white
-    padding: 10px
-    width: 100%
-    height: 100%
-    // border: 1px solid gold
-    z-index: 2
+    // background-color: black
+    // color: white
+    // padding: 10px
+    // width: 100%
+    // height: 100%
+    // // border: 1px solid gold
+    // z-index: 2
 
-    .notification.black &
-        width: 100%
-        height: 100%
-        background-color: black
+    // .notification.black &
+    //     width: 100%
+    //     height: 100%
+    //     background-color: black
 
-    .notification.gold &
-        background-color: gold
+    // .notification.gold &
+    //     background-color: gold
 
-    .notification.gold & p
-        color: black
+    // .notification.gold & p
+    //     color: black

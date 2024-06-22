@@ -1,10 +1,54 @@
 .routine-list-component
     display: flex
-    height: fit-content
+    flex-direction: column
+    // height: fit-content
     width: 100%
-    flex-wrap: wrap
-    justify-content: start
-    gap: 10px
+    height: 100%
+    // flex-wrap: wrap
+    // justify-content: start
+    gap: 25px
+
+    .routine-list-component_routine-list
+        display: flex
+        width: 100%
+        flex-direction: column
+        gap: 5px
+
+    .routine-list-component_routine-list_content
+        display: flex
+        flex-wrap: wrap
+        gap: 5px
+        .tier-1
+            background: rgba( 0, 230, 118, 0.1 )
+
+            backdrop-filter: blur( 0.5px )
+            -webkit-backdrop-filter: blur( 0.5px )
+            &:hover
+                box-shadow: 0 8px 32px 0 rgba(0,230,118, 0.37)
+            // border-radius: 10px
+        .tier-2
+            background: rgba( 142, 36, 170, 0.1 )
+
+            backdrop-filter: blur( 0.5px )
+            -webkit-backdrop-filter: blur( 0.5px )
+            &:hover
+                box-shadow: 0 8px 32px 0 rgba( 142,36,170, 0.37 )
+            // border-radius: 10px
+        .tier-3
+            background: rgba( 255, 214, 0, 0.1 )
+            backdrop-filter: blur( 0.5px )
+            -webkit-backdrop-filter: blur( 0.5px )
+            &:hover
+                box-shadow: 0 8px 32px 0 rgba( 255,214,0, 0.37 )
+            // border-radius: 10px
+        .tier-4
+            background: rgba( 229, 57, 53, 0.1 )
+
+            backdrop-filter: blur( 0.5px )
+            -webkit-backdrop-filter: blur( 0.5px )
+            &:hover
+                box-shadow: 0 8px 32px 0 rgba( 229,57,53, 0.37 )
+            // border-radius: 10px
 
     .routine-list-component_element-card
         // background: rgba( 255, 255, 255, 0.1 )
@@ -14,25 +58,81 @@
 
         display: flex
         flex-direction: column
+        // justify-content: space-between
         gap: 15px
         // justify-content: space-between
         // background: #423830
-        background: #332922
+        // background: #332922
         border: 1px solid #827160
-        // padding: 5px
+        border-radius: 6px
+        padding: 5px
         width: 180px
         height: 100px
-        &:hover
-            // background: #332922
-            background: #423830
+        // &:hover
+        //     background: #423830
 
     .routine-list-component_element-card-header
+        display: flex
+        // justify-content: space-between
+        align-items: center
+        .routine-list-component_element-card-link
+            text-decoration: none
+            display: inline-block
+            box-sizing: border-box
+            text-align: center
+            font-size: 20px
+        .routine-list-component_element-card-header_tag
 
-    .routine-list-component_element-card-link
-        text-decoration: none
-        display: inline-block
-        box-sizing: border-box
-        text-align: center
+    .routine-list-component_element-card-body
+
+    .routine-list-component_element-card-footer
+        display: flex
+        justify-content: flex-end
+
         // line-height: inherit
         // height: 25px
         // border-top: 1px solid #827160
+
+.card
+    border: 1px solid #ddd
+    border-radius: 8px
+    padding: 16px
+    margin: 16px
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
+
+    &-header
+        display: flex
+        justify-content: space-between
+        align-items: center
+
+    &-header h3
+        margin: 0
+
+.tags
+    display: flex
+    gap: 8px
+
+.tag
+    background-color: #f1f1f1
+    border-radius: 4px
+    padding: 4px 8px
+    font-size: 12px
+
+.card-body
+    margin: 16px 0
+
+.card-footer
+    display: flex
+    justify-content: flex-end
+
+.detail-button
+    background-color: #007bff
+    color: white
+    border: none
+    padding: 8px 16px
+    border-radius: 4px
+    cursor: pointer
+    transition: background-color 0.3s
+
+    &:hover
+        background-color: #0056b3

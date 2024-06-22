@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivityService } from '../../../../services/activity/activity.service';
 import { NotificationService } from '../../../../services/notification/notification.service';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-routine',
   standalone: true,
-  imports: [],
+  imports: [FormsModule, CommonModule],
   templateUrl: './routine.component.html',
   styleUrl: './routine.component.sass',
 })
 export class RoutineComponent implements OnInit {
-  routine_list: any = [];
+  routine_list: any = {};
   constructor(
     private activityService: ActivityService,
     private notificationService: NotificationService
@@ -23,8 +25,8 @@ export class RoutineComponent implements OnInit {
   getRoutineList() {
     this.activityService.get_routine_list().subscribe({
       next: (value) => {
-        console.log(value)
-        this.routine_list = value.data.rows;
+        console.log(value);
+        this.routine_list = value.data;
         this.notificationService.showNotification(value.message, 'gold', 2000);
       },
       error: (error) => {
@@ -34,10 +36,25 @@ export class RoutineComponent implements OnInit {
     });
   }
 
+  getTierClass(tier: number): string {
+    switch (tier) {
+      case 1:
+        return 'tier-1';
+      case 2:
+        return 'tier-2';
+      case 3:
+        return 'tier-3';
+      case 4:
+        return 'tier-4';
+      default:
+        return 'default';
+    }
+  }
+
   getFaviconUrl(serviceUrl: string): string {
     try {
       const url = new URL(serviceUrl);
-     
+
       return `${url.origin}/favicon.ico`;
     } catch (error) {
       console.error('Invalid URL', serviceUrl);

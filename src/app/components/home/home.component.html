@@ -1,6 +1,13 @@
-<p>home works!</p>
-<button class="button" (click)="showNotification()">notification</button>
-<div>asdasdasd asdasdasdasd asdasdas</div>
-<div>asdasdasd asdasdasdasd asdasdas</div>
-<div>asdasdasd asdasdasdasd asdasdas</div>
-<div>asdasdasd asdasdasdasd asdasdas</div>
+<nav class="navbar">
+  <a class="navbar_route" routerLink="/">Home</a>
+  <a class="navbar_route" routerLink="accounts" routerLinkActive="active"
+    >Accounts</a
+  >
+  <a class="navbar_route" routerLink="items" routerLinkActive="active">Items</a>
+  <a class="navbar_route" routerLink="dashboard" routerLinkActive="active"
+    >Dash</a
+  >
+  <a class="navbar_route" routerLink="web3" routerLinkActive="active">Web3</a>
+</nav>
+<router-outlet></router-outlet>
+<!-- <app-notification></app-notification> -->

@@ -1,14 +1,73 @@
 <div class="database-dashboard-component">
   <div class="database-dashboard-component_import-block">
-    <p>Import table</p>
-    <button class="button" (click)="importAccounts()">Accounts</button>
-    <button class="button">Tasks</button>
-    <button class="button" (click)="importActivity()">Activity</button>
-    <button class="button" (click)="importRoutine()">Routine</button>
+    <p class="database-dashboard-component_import-block-header">Import table</p>
+    <div class="database-dashboard-component_import-block-row">
+      <button
+        class="button"
+        (click)="importAccounts()"
+        [disabled]="buttonStates.importAccounts.isRequestInProgress"
+        [ngClass]="{ confirmed: buttonStates.importAccounts.isConfirmed }"
+      >
+        {{
+          buttonStates.importAccounts.isConfirmed
+            ? buttonStates.importAccounts.message
+            : "Accounts"
+        }}
+      </button>
+      <button class="button">Tasks</button>
+      <button
+        class="button"
+        (click)="importActivity()"
+        [disabled]="buttonStates.importActivity.isRequestInProgress"
+        [ngClass]="{ confirmed: buttonStates.importActivity.isConfirmed }"
+      >
+        {{
+          buttonStates.importActivity.isConfirmed
+            ? buttonStates.importActivity.message
+            : "Activity"
+        }}
+      </button>
+      <button
+        class="button"
+        (click)="importRoutine()"
+        [disabled]="buttonStates.importRoutine.isRequestInProgress"
+        [ngClass]="{ confirmed: buttonStates.importRoutine.isConfirmed }"
+      >
+        {{
+          buttonStates.importRoutine.isConfirmed
+            ? buttonStates.importRoutine.message
+            : "Routine"
+        }}
+      </button>
+    </div>
   </div>
   <div class="database-dashboard-component_sync-block">
-    <p>Sync DB</p>
-    <button class="button" (click)="DBSync()">Default</button>
-    <button class="button" (click)="fullDBsync()">Full</button>
+    <p class="database-dashboard-component_sync-block-header">Sync DB</p>
+    <div class="database-dashboard-component_sync-block-row">
+      <button
+        class="button"
+        (click)="DBSync()"
+        [disabled]="buttonStates.DBSync.isRequestInProgress"
+        [ngClass]="{ confirmed: buttonStates.DBSync.isConfirmed }"
+      >
+        {{
+          buttonStates.DBSync.isConfirmed
+            ? buttonStates.DBSync.message
+            : "Default"
+        }}
+      </button>
+      <button
+        class="button"
+        (click)="fullDBSync()"
+        [disabled]="buttonStates.fullDBSync.isRequestInProgress"
+        [ngClass]="{ confirmed: buttonStates.fullDBSync.isConfirmed }"
+      >
+        {{
+          buttonStates.fullDBSync.isConfirmed
+            ? buttonStates.fullDBSync.message
+            : "Full"
+        }}
+      </button>
+    </div>
   </div>
 </div>

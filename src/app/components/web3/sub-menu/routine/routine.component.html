@@ -1,23 +1,128 @@
 <!-- <p>routine works!</p> -->
 <div class="routine-list-component">
-  @for (item of routine_list; track $index) {
-  <div class="routine-list-component_element-card">
-    <!-- <P> {{item.name}}</P> -->
-    <!-- <img [src]="getFaviconUrl(item.url)"> -->
-
-    <a
-      [href]="item.url"
-      class="routine-list-component_element-card-link"
-      target="_blank"
-      >{{ item.name }}</a
-    >
-    <div>
-      <p>{{ item.rate }}</p>
-      <!-- <p></p> -->
+  <div class="routine-list-component_routine-list">
+    <p>Daily</p>
+    <div class="routine-list-component_routine-list_content">
+      @for (item of routine_list.daily.rows; track $index) {
+      <div
+        class="routine-list-component_element-card"
+        [ngClass]="getTierClass(item.tier)"
+      >
+        <div class="routine-list-component_element-card-header">
+          <a
+            [href]="item.url"
+            class="routine-list-component_element-card-link"
+            target="_blank"
+            >{{ item.name }}</a
+          >
+          <!-- @for (tag of item.tags; track $index) {
+          <div class="routine-list-component_element-card-header_tag">
+            {{ tag }}
+          </div>
+          } -->
+        </div>
+        <div class="routine-list-component_element-card-body">
+          <p>{{ item.tier }}</p>
+          <p>{{ item.rate }}</p>
+          <p>{{ item.category }}</p>
+        </div>
+        <div class="routine-list-component_element-card-footer">
+          <button>Details</button>
+        </div>
+        <!-- <p>Detailed</p> -->
+      </div>
+      } @empty {
+      <div>No Daily</div>
+      }
     </div>
-    <!-- <p>Detailed</p> -->
   </div>
-  } @empty {
-  <div>Empty</div>
-  }
+  <div class="routine-list-component_routine-list">
+    <p>Weekly</p>
+    <div class="routine-list-component_routine-list_content">
+      @for (item of routine_list.weekly.rows; track $index) {
+      <div
+        class="routine-list-component_element-card"
+        [ngClass]="getTierClass(item.tier)"
+      >
+        <div class="routine-list-component_element-card-header">
+          <a
+            [href]="item.url"
+            class="routine-list-component_element-card-link"
+            target="_blank"
+            >{{ item.name }}</a
+          >
+          <!-- @for (tag of item.tags; track $index) {
+          <div class="routine-list-component_element-card-header_tag">
+            {{ tag }}
+          </div>
+          } -->
+        </div>
+        <div class="routine-list-component_element-card-body">
+          <p>{{ item.tier }}</p>
+          <p>{{ item.rate }}</p>
+          <p>{{ item.category }}</p>
+        </div>
+        <div class="routine-list-component_element-card-footer">
+          <button>Details</button>
+        </div>
+        <!-- <p>Detailed</p> -->
+      </div>
+      } @empty {
+      <div>No Weekly</div>
+      }
+    </div>
+  </div>
+  <div class="routine-list-component_routine-list">
+    <p>Monthly</p>
+    <div class="routine-list-component_routine-list_content">
+      @for (item of routine_list.monthly.rows; track $index) {
+      <div
+        class="routine-list-component_element-card"
+        [ngClass]="getTierClass(item.tier)"
+      >
+        <div class="routine-list-component_element-card-header">
+          <a
+            [href]="item.url"
+            class="routine-list-component_element-card-link"
+            target="_blank"
+            >{{ item.name }}</a
+          >
+          <!-- @for (tag of item.tags; track $index) {
+          <div class="routine-list-component_element-card-header_tag">
+            {{ tag }}
+          </div>
+          } -->
+        </div>
+        <div class="routine-list-component_element-card-body">
+          <p>{{ item.tier }}</p>
+          <p>{{ item.rate }}</p>
+          <p>{{ item.category }}</p>
+        </div>
+        <div class="routine-list-component_element-card-footer">
+          <button>Details</button>
+        </div>
+        <!-- <p>Detailed</p> -->
+      </div>
+      } @empty {
+      <div>No Monthly</div>
+      }
+    </div>
+  </div>
 </div>
+<!-- <div class="card">
+  <div class="card-header">
+    <h3>Layer3</h3>
+    <div class="tags">
+      <span class="tag">tag1</span>
+      <span class="tag">tag2</span>
+      <span class="tag">tag3</span>
+    </div>
+  </div>
+  <div class="card-body">
+    <p>Frequency: Weekly</p>
+    <p>Tier: 2</p>
+  </div>
+  <div class="card-footer">
+    <button class="detail-button">View Details</button>
+  </div>
+</div> -->

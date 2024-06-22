@@ -1,20 +1,24 @@
 .navbar
     display: flex
     flex-direction: row
+    justify-content: center
     align-items: center
 
     gap: 25px
-    padding: 1%
+    padding: 1% 0 1% 0
     width: 100%
     height: max-content
+    .logo
+        height: 128px
+        width: 128px
     .navbar_route
         appearance: none
         text-decoration: none
         font-family: DelicateSans
         // font-family: Steiner
-
-        font-size: 24px
-        width: 160px
+        // border: 1px solid red
+        font-size: 26px
+        width: 140px
         height: 40px
         min-height: 40px
         display: inline-block
@@ -29,18 +33,5 @@
         padding: 12px 14px
 
 .active
-    // border-bottom: 1px solid #f8fade
-    // border-left: 1px solid #f8fade
+    border-bottom: 1px solid #f8fade
     color: #f8fade
-    // border-bottom: 2px solid black
-    &::after
-        content: " ⚜"
-        // position: absolute
-        // left: 50%
-        // bottom: -10px
-        // transform: translateX(-50%)
-        // width: 0
-        // height: 0
-        // border-left: 5px solid transparent
-        // border-right: 5px solid transparent
-        // border-top: 5px solid #f8fade
