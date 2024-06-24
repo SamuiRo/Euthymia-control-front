@@ -3,16 +3,27 @@ import { ActivityService } from '../../../../services/activity/activity.service'
 import { NotificationService } from '../../../../services/notification/notification.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { MarkdownModule } from 'ngx-markdown';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-routine',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, MarkdownModule, RouterModule],
   templateUrl: './routine.component.html',
   styleUrl: './routine.component.sass',
 })
 export class RoutineComponent implements OnInit {
   routine_list: any = {};
+  markdownText: string = `
+    # Заголовок 1
+    **Жирний текст**
+    * Курсив
+    * Список
+    1. Нумерований список
+    [Посилання](https://example.com)
+  `;
+
   constructor(
     private activityService: ActivityService,
     private notificationService: NotificationService

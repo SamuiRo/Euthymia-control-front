@@ -16,4 +16,14 @@ export class ActivityService {
   get_routine_list() {
     return this.http.get<any>(`${environment.baseUrl}/activity/routine`);
   }
+
+  get_activity_overview(name: string) {
+    let query_params = {
+      name,
+    };
+    
+    return this.http.get<any>(`${environment.baseUrl}/activity/overview`, {
+      params: query_params,
+    });
+  }
 }

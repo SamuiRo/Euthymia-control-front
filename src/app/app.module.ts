@@ -6,10 +6,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
-  declarations: [
-  ],
+  declarations: [],
   imports: [
     CommonModule,
     AppComponent,
@@ -17,8 +17,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     RouterModule,
     BrowserModule,
-    BrowserAnimationsModule
-   
-  ]
+    BrowserAnimationsModule,
+    MarkdownModule.forRoot(),
+  ],
 })
-export class AppModule { }
+export class AppModule {}

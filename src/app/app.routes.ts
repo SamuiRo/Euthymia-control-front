@@ -14,6 +14,7 @@ import { WalletComponent } from './components/web3/sub-menu/wallet/wallet.compon
 import { Web3profilesComponent } from './components/web3/sub-menu/web3profiles/web3profiles.component';
 import { RoutineComponent } from './components/web3/sub-menu/routine/routine.component';
 import { LendingComponent } from './components/lending/lending.component';
+import { ActivityOverviewComponent } from './components/web3/sub-menu/routine/activity-overview/activity-overview.component';
 
 export const routes: Routes = [
   { path: '', component: LendingComponent },
@@ -64,6 +65,11 @@ export const routes: Routes = [
             component: Web3profileComponent,
           },
           { path: 'routine', title: 'Routine', component: RoutineComponent },
+          {
+            path: 'routine/:activity',
+            title: 'Activity Overview',
+            component: ActivityOverviewComponent,
+          },
           { path: 'wallet', title: 'Wallet', component: WalletComponent },
         ],
       },
