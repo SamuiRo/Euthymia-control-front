@@ -21,9 +21,17 @@ export class ActivityService {
     let query_params = {
       name,
     };
-    
+
     return this.http.get<any>(`${environment.baseUrl}/activity/overview`, {
       params: query_params,
     });
+  }
+
+  get_treasure_list() {
+    return this.http.get<any>(`${environment.baseUrl}/activity/treasure-list`);
+  }
+
+  get_arcade_list() {
+    return this.http.get<any>(`${environment.baseUrl}/activity/arcade-list`);
   }
 }

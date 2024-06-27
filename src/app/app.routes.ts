@@ -15,6 +15,8 @@ import { Web3profilesComponent } from './components/web3/sub-menu/web3profiles/w
 import { RoutineComponent } from './components/web3/sub-menu/routine/routine.component';
 import { LendingComponent } from './components/lending/lending.component';
 import { ActivityOverviewComponent } from './components/web3/sub-menu/routine/activity-overview/activity-overview.component';
+import { TreasureComponent } from './components/web3/sub-menu/treasure/treasure.component';
+import { ArcadeComponent } from './components/web3/sub-menu/arcade/arcade.component';
 
 export const routes: Routes = [
   { path: '', component: LendingComponent },
@@ -68,6 +70,18 @@ export const routes: Routes = [
           {
             path: 'routine/:activity',
             title: 'Activity Overview',
+            component: ActivityOverviewComponent,
+          },
+          { path: 'treasure', title: 'Treasure', component: TreasureComponent },
+          {
+            path: 'treasure/:activity',
+            title: 'Treasure Overview',
+            component: ActivityOverviewComponent,
+          },
+          { path: 'arcade', title: 'Arcade', component: ArcadeComponent },
+          {
+            path: 'arcade/:activity',
+            title: 'Arcade Overview',
             component: ActivityOverviewComponent,
           },
           { path: 'wallet', title: 'Wallet', component: WalletComponent },

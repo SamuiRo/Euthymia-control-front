@@ -39,6 +39,30 @@
             : "Routine"
         }}
       </button>
+      <button
+        class="button"
+        (click)="importTreasure()"
+        [disabled]="buttonStates.importTreasure.isRequestInProgress"
+        [ngClass]="{ confirmed: buttonStates.importTreasure.isConfirmed }"
+      >
+        {{
+          buttonStates.importTreasure.isConfirmed
+            ? buttonStates.importTreasure.message
+            : "Treasure"
+        }}
+      </button>
+      <button
+        class="button"
+        (click)="importArcade()"
+        [disabled]="buttonStates.importArcade.isRequestInProgress"
+        [ngClass]="{ confirmed: buttonStates.importArcade.isConfirmed }"
+      >
+        {{
+          buttonStates.importArcade.isConfirmed
+            ? buttonStates.importArcade.message
+            : "Arcade"
+        }}
+      </button>
     </div>
   </div>
   <div class="database-dashboard-component_sync-block">

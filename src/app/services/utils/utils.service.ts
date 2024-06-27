@@ -41,4 +41,18 @@ export class UtilsService {
       {}
     );
   }
+
+  importTreasure() {
+    return this.http.post<any>(
+      `${environment.baseUrl}/utils/import-treasure`,
+      {}
+    );
+  }
+
+  importArcade() {
+    return this.http.post<any>(
+      `${environment.baseUrl}/utils/import-arcade`,
+      {}
+    );
+  }
 }

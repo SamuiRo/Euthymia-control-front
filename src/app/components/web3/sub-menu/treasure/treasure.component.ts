@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivityService } from '../../../../services/activity/activity.service';
-import { NotificationService } from '../../../../services/notification/notification.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { MarkdownModule } from 'ngx-markdown';
 import { RouterModule } from '@angular/router';
 
+import { ActivityService } from '../../../../services/activity/activity.service';
+import { NotificationService } from '../../../../services/notification/notification.service';
+
 @Component({
-  selector: 'app-routine',
+  selector: 'app-treasure',
   standalone: true,
-  imports: [FormsModule, CommonModule, MarkdownModule, RouterModule],
-  templateUrl: './routine.component.html',
-  styleUrl: './routine.component.sass',
+  imports: [FormsModule, CommonModule, RouterModule],
+  templateUrl: './treasure.component.html',
+  styleUrl: './treasure.component.sass',
 })
-export class RoutineComponent implements OnInit {
-  routine_list: any = {};
+export class TreasureComponent implements OnInit {
+  treasure_list: any;
 
   constructor(
     private activityService: ActivityService,
@@ -22,14 +22,15 @@ export class RoutineComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.getRoutineList();
+    // this.getRoutineList();
+    this.getTreasureList();
   }
 
-  getRoutineList() {
-    this.activityService.get_routine_list().subscribe({
+  getTreasureList() {
+    this.activityService.get_treasure_list().subscribe({
       next: (value) => {
         console.log(value);
-        this.routine_list = value.data;
+        this.treasure_list = value.data.rows;
         this.notificationService.showNotification(value.message, 'gold', 2000);
       },
       error: (error) => {
@@ -51,17 +52,6 @@ export class RoutineComponent implements OnInit {
         return 'tier-4';
       default:
         return 'default';
-    }
-  }
-
-  getFaviconUrl(serviceUrl: string): string {
-    try {
-      const url = new URL(serviceUrl);
-
-      return `${url.origin}/favicon.ico`;
-    } catch (error) {
-      console.error('Invalid URL', serviceUrl);
-      return '';
     }
   }
 }

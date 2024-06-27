@@ -49,6 +49,16 @@ export class DatabaseDashboardComponent {
       isRequestInProgress: false,
       message: 'Confirm',
     },
+    importTreasure: {
+      isConfirmed: false,
+      isRequestInProgress: false,
+      message: 'Confirm',
+    },
+    importArcade: {
+      isConfirmed: false,
+      isRequestInProgress: false,
+      message: 'Confirm',
+    },
   };
 
   constructor(
@@ -64,6 +74,7 @@ export class DatabaseDashboardComponent {
       buttonState.isConfirmed = true;
       setTimeout(() => (buttonState.isConfirmed = false), 5000); // Автоматичне скасування підтвердження через 5 секунд
     } else {
+      buttonState.isConfirmed = false;
       this.utilsService.fullDBSync().subscribe({
         next: (value) => {
           console.log(value);
@@ -84,6 +95,7 @@ export class DatabaseDashboardComponent {
       buttonState.isConfirmed = true;
       setTimeout(() => (buttonState.isConfirmed = false), 5000); // Автоматичне скасування підтвердження через 5 секунд
     } else {
+      buttonState.isConfirmed = false;
       this.utilsService.importAccounts().subscribe({
         next: (value) => {
           console.log(value);
@@ -104,6 +116,7 @@ export class DatabaseDashboardComponent {
       buttonState.isConfirmed = true;
       setTimeout(() => (buttonState.isConfirmed = false), 5000); // Автоматичне скасування підтвердження через 5 секунд
     } else {
+      buttonState.isConfirmed = false;
       this.utilsService.importActivity().subscribe({
         next: (value) => {
           console.log(value);
@@ -124,7 +137,50 @@ export class DatabaseDashboardComponent {
       buttonState.isConfirmed = true;
       setTimeout(() => (buttonState.isConfirmed = false), 5000); // Автоматичне скасування підтвердження через 5 секунд
     } else {
+      buttonState.isConfirmed = false;
       this.utilsService.importRoutine().subscribe({
+        next: (value) => {
+          console.log(value);
+          this.notificationService.showNotification(value.message);
+        },
+        error: (error) => {
+          console.log(error);
+          this.notificationService.showNotification(error.message);
+        },
+        complete: () => console.log('import complete'),
+      });
+    }
+  }
+
+  importTreasure() {
+    const buttonState = this.buttonStates.importTreasure;
+    if (!buttonState.isConfirmed) {
+      buttonState.isConfirmed = true;
+      setTimeout(() => (buttonState.isConfirmed = false), 5000); // Автоматичне скасування підтвердження через 5 секунд
+    } else {
+      buttonState.isConfirmed = false;
+      this.utilsService.importTreasure().subscribe({
+        next: (value) => {
+          console.log(value);
+          this.notificationService.showNotification(value.message);
+        },
+        error: (error) => {
+          console.log(error);
+          this.notificationService.showNotification(error.message);
+        },
+        complete: () => console.log('import complete'),
+      });
+    }
+  }
+
+  importArcade() {
+    const buttonState = this.buttonStates.importArcade;
+    if (!buttonState.isConfirmed) {
+      buttonState.isConfirmed = true;
+      setTimeout(() => (buttonState.isConfirmed = false), 5000); // Автоматичне скасування підтвердження через 5 секунд
+    } else {
+      buttonState.isConfirmed = false;
+      this.utilsService.importArcade().subscribe({
         next: (value) => {
           console.log(value);
           this.notificationService.showNotification(value.message);
