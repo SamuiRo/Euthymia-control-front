@@ -17,6 +17,8 @@ import { LendingComponent } from './components/lending/lending.component';
 import { ActivityOverviewComponent } from './components/web3/sub-menu/routine/activity-overview/activity-overview.component';
 import { TreasureComponent } from './components/web3/sub-menu/treasure/treasure.component';
 import { ArcadeComponent } from './components/web3/sub-menu/arcade/arcade.component';
+import { TreasureOverviewComponent } from './components/web3/sub-menu/treasure/treasure-overview/treasure-overview.component';
+import { ArcadeOverviewComponent } from './components/web3/sub-menu/arcade/arcade-overview/arcade-overview.component';
 
 export const routes: Routes = [
   { path: '', component: LendingComponent },
@@ -76,13 +78,13 @@ export const routes: Routes = [
           {
             path: 'treasure/:activity',
             title: 'Treasure Overview',
-            component: ActivityOverviewComponent,
+            component: TreasureOverviewComponent,
           },
           { path: 'arcade', title: 'Arcade', component: ArcadeComponent },
           {
             path: 'arcade/:activity',
             title: 'Arcade Overview',
-            component: ActivityOverviewComponent,
+            component: ArcadeOverviewComponent,
           },
           { path: 'wallet', title: 'Wallet', component: WalletComponent },
         ],
