@@ -1,1 +1,42 @@
-<p>arcade works!</p>
+<div class="arcade-list-component">
+  <div class="arcade-list-component_arcade-list">
+    <p>Treasures</p>
+    <div class="arcade-list-component_arcade-list_content">
+      @for (item of arcade_list; track $index) {
+      <div
+        class="arcade-list-component_element-card"
+        [ngClass]="getTierClass(item.tier)"
+      >
+        <div class="arcade-list-component_element-card-header">
+          <a
+            [href]="item.url"
+            class="arcade-list-component_element-card-link"
+            target="_blank"
+            >{{ item.name }}</a
+          >
+          <!-- @for (tag of item.tags; track $index) {
+                <div class="arcade-list-component_element-card-header_tag">
+                  {{ tag }}
+                </div>
+                } -->
+        </div>
+        <div class="arcade-list-component_element-card-body">
+          <div class="arcade-list-component_element-card-body_rating">
+            <p>Tier {{ item.tier }}</p>
+            <p>{{ item.rate }}</p>
+          </div>
+          <p>{{ item.category }}</p>
+        </div>
+        <div class="arcade-list-component_element-card-footer">
+          <!-- <p>{{ item.createdAt | date : "dd/MM/yy" }}</p> -->
+          @if (item.details.article_text) {<a routerLink="{{ item.project }}"
+            >Details -></a
+          >}
+        </div>
+      </div>
+      } @empty {
+      <div>No Arcade</div>
+      }
+    </div>
+  </div>
+</div>
