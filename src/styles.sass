@@ -35,6 +35,12 @@ $star: #e1b47b
   font-style: normal
 
 @font-face
+  font-family: 'BloggerSans'
+  src: url('./assets/fonts/Blogger_Sans.otf') format('truetype'),
+  font-weight: normal
+  font-style: normal
+
+@font-face
   font-family: 'DelicateSans'
   src: url('./assets/fonts/DelicateSans.ttf') format('truetype')
   font-weight: normal
@@ -58,6 +64,18 @@ $star: #e1b47b
   font-weight: normal
   font-style: normal
 
+@font-face
+  font-family: 'Bitter'
+  src: url('./assets/fonts/Bitter.otf') format('truetype'),
+  font-weight: normal
+  font-style: normal
+
+@font-face
+  font-family: 'Anonymous_Pro'
+  src: url('./assets/fonts/Anonymous_Pro.ttf') format('truetype'),
+  font-weight: normal
+  font-style: normal
+
 *,
 *::before,
 *::after
@@ -71,7 +89,11 @@ body,html
   width: 100%
   overflow: hidden
   font-family: BrassMono
-  font-size: 16px
+  p,h1,h2,h3,h4,h5,h6,ul,ol
+    // font-family: Anonymous_Pro
+    font-family: BloggerSans
+  // font-family: Bitter
+    font-size: 16px
   a
     color: white
 
@@ -327,6 +349,8 @@ $shadows-big: multiple-box-shadow(100)
 .markdown-container a
   text-decoration: none
   color: #879f91
+  // content: " link"
+  // border: 1px solid red
 
   &:hover
     text-decoration: underline
