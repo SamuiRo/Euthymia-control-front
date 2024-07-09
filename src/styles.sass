@@ -1,26 +1,5 @@
 @import "../node_modules/jsoneditor/dist/jsoneditor.min.css"
-
-$color-dark-gray: #0f0e0e
-$color-light-beige: #e9ceac
-$color-dark-brown: #4d4241
-$color-brown: #7b695f
-$color-dark-gray-alt: #2b2726
-$color-light-brown: #b1937d
-
-// Фон
-$background: $color-dark-gray
-
-$red: #be392b
-$grad1: #080709
-$grad2: #4b5549
-
-$star: #e1b47b
-
-@font-face
-  font-family: 'Ormont_Light'
-  src: url('./assets/fonts/Ormont_Light.ttf') format('truetype'),
-  font-weight: normal
-  font-style: normal
+@import "./styles/variables"
 
 @font-face
   font-family: 'SERTOCHAHANE'
@@ -37,12 +16,6 @@ $star: #e1b47b
 @font-face
   font-family: 'BloggerSans'
   src: url('./assets/fonts/Blogger_Sans.otf') format('truetype'),
-  font-weight: normal
-  font-style: normal
-
-@font-face
-  font-family: 'DelicateSans'
-  src: url('./assets/fonts/DelicateSans.ttf') format('truetype')
   font-weight: normal
   font-style: normal
 
@@ -76,60 +49,55 @@ $star: #e1b47b
   font-weight: normal
   font-style: normal
 
+@font-face
+  font-family: 'CaviarDreams'
+  src: url('./assets/fonts/CaviarDreams.ttf') format('truetype'),
+  font-weight: normal
+  font-style: normal
+
 *,
 *::before,
 *::after
   padding: 0px
   margin: 0px
-  // box-sizing: inherit
 
 body,html
-  color: white
+  color: $font-color
   height: 100%
   width: 100%
   overflow: hidden
-  font-family: BrassMono
+  font-family: $font
+
   p,h1,h2,h3,h4,h5,h6,ul,ol
-    // font-family: Anonymous_Pro
-    font-family: BloggerSans
-  // font-family: Bitter
+    font-family: $markdown-font
     font-size: 16px
   a
-    color: white
+    color: $font-color
 
 body
   z-index: -3
-  // background: #050506
-  // background: radial-gradient(ellipse at bottom, #4d4140 0%, #1c1a1a 100%)
-  // background: radial-gradient(ellipse at bottom, #4d4140 0%, #0f0e0e 100%)
-  // background: radial-gradient(ellipse at bottom, #4d4140 0%, #1c1a1a 100%)
-  // background: radial-gradient(ellipse at bottom, #58403e 0%, #0f0e0e 100%)
-  background: radial-gradient(ellipse at bottom, #3e2927 0%, $background 100%)
-  // background: radial-gradient(ellipse at bottom, #3e2927 0%, #1c1a1a 100%)
-  // background: radial-gradient(ellipse at bottom, $grad2 0%, $grad1 100%)
-  // background: radial-gradient(ellipse at bottom, #2b1c1a 0%, #0f0e0e 100%)
+  background: radial-gradient(ellipse at bottom, $background-secondary 0%, $background-primary 100%)
 
 ::selection
-  background-color: #879f91 // Колір фону виділення */
-  color: #ffffff // Колір тексту під час виділення */
+  background-color: $selection
+  color: $font-color
 
 ::-moz-selection
-  background-color: #879f91 // Колір фону виділення для Firefox */
-  color: #ffffff // Колір тексту під час виділення для Firefox */
+  background-color: $selection
+  color: $font-color
 
 .button
   appearance: none
   text-decoration: none
-  font-family: SERTOCHAHANE
-  font-size: 16px
-  font-size: 20px
+  font-family: $select-font
+  font-size: $button-font-size
   width: 140px
   height: 40px
   min-height: 40px
-  color: #c3baaa
+  color: $button-color
   padding: 12px 14px
   // background-color: #2e2826
-  background-color: #272220
+  background-color: $button-background
   display: inline-block
   box-sizing: border-box
   text-align: center
@@ -138,12 +106,12 @@ body
   text-transform: none
   cursor: pointer
   border-radius: 6px
-  border: 1px solid #96816a
+  border: $button-border
   outline: 0
   touch-action: manipulation
   vertical-align: middle
   position: relative
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7)
+  text-shadow: $button-text-shadow
   transition: background-color 0.3s ease, color 0.3s ease
   overflow: hidden
   &::before
@@ -153,8 +121,7 @@ body
     left: -150%
     width: 100%
     height: 100%
-    // background: linear-gradient(120deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.1) 100%)
-    background: linear-gradient(120deg, rgba(255, 255, 255, 0.1) 0%, rgba(128,113,93,255) 50%, rgba(255, 255, 255, 0.1) 100%)
+    background: $button-background-hover
     transform: skewX(-20deg)
     transition: all 0.7s ease
   &:hover::before
@@ -164,7 +131,7 @@ body
     background-color: initial
     background-position: 0 0
   &:active
-    // opacity: 0.5
+    opacity: 0.5
 
 .inner-table-button
   text-decoration: none
@@ -178,23 +145,21 @@ body
   &:active
     background-color: initial
     background-position: 0 0
-
   &:active
     opacity: 0.5
-
 .input
   appearance: none
   text-decoration: none
-  font-family: CutiveMono
+  font-family: $input-font
   width: 140px
   height: 40px
   min-height: 40px
-  color: #d6cebd
+  color: $input-color
   padding: 12px 14px
-  background-color: #2e2826
+  background-color: $input-background
   outline: 0
   border-radius: 6px
-  border: 1px solid #837260
+  border: $input-border
   display: inline-block
   box-sizing: border-box
   &:hover,
@@ -207,16 +172,16 @@ body
 .select
   appearance: none
   text-decoration: none
-  font-family: CutiveMono
+  font-family: $select-font
   width: 140px
   height: 40px
   min-height: 40px
-  color: #d6cebd
+  color: $select-color
   padding: 12px 14px
-  background-color: #2e2826
+  background-color: $select-background
   outline: 0
   border-radius: 6px
-  border: 1px solid #837260
+  border: $select-border
   display: inline-block
   box-sizing: border-box
   cursor: inherit
@@ -231,19 +196,16 @@ body
   &:active
     outline: none
     box-shadow: none
-    // text-decoration: none
     background-color: initial
     background-position: 0 0
   &:active
     opacity: 0.5
   option
-    background-color: #2e2826
+    background-color: $option-background
     &:hover,
     &:active
       outline: none
       box-shadow: none
-
-// ------------------------------------------------------------------
 
 @function multiple-box-shadow ($n)
   $value: '#{random(2560)}px #{random(2560)}px #be605c'
@@ -317,46 +279,25 @@ $shadows-big: multiple-box-shadow(100)
     transform: translateY(-2560px)
 
 .markdown-container
-  // display: border-box
   max-width: 800px
   max-height: 800px
   overflow-y: auto
-  // word-wrap: break-word
   white-space: pre-wrap
-  scrollbar-width: none // Firefox */
-  // -ms-overflow-style: none
-  // overflow-y: scroll
+  scrollbar-width: none
+
   &::-webkit-scrollbar
-    width: 0 // Робить скролбар невидимим */
-    height: 0 // Робить скролбар невидимим для горизонтальної прокрутки */
-  // &
-  //   -ms-overflow-style: none // Для Internet Explorer і Edge */
-  //   scrollbar-width: none // Для Firefox */
-
-.markdown-container h1
-  // font-size: 2em
-  // color: red
-
-.markdown-container h2
-  // font-size: 1.75em
-  // color: 
-
-.markdown-container p
-  // font-size: 1em
-  // color: #666
-  // line-height: 1.2
+    width: 0
+    height: 0
 
 .markdown-container a
   text-decoration: none
-  color: #879f91
-  // content: " link"
-  // border: 1px solid red
+  color: $markdown-a-color
 
   &:hover
     text-decoration: underline
 
 .markdown-container ul, .markdown-container ol
-  padding-left: 30px
+  padding-left: $markdown-ul-ol-padding
 
 .markdown-container li
   // margin-bottom: 10px
@@ -365,108 +306,9 @@ $shadows-big: multiple-box-shadow(100)
   // margin: 20px 0
   // padding: 10px 20px
   // background-color: #f9f9f9
-  border-left: 5px solid #ccc
+  border-left: $markdown-blockquote-border
 
 .markdown-container code
-  background-color: #f4f4f4
+  background-color: $markdown-code-background#f4f4f4
   // padding: 2px 4px
   border-radius: 4px
-
-  // NEW MARKDOWN
-// .markdown-container
-//   max-width: 800px
-//   max-height: 80%
-//   overflow-y: scroll
-//   margin: 0 auto
-//   padding: 20px
-//   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-//   line-height: 1.6
-//   color: #333
-//   // word-wrap: break-word
-//   // white-space: pre-wrap
-
-// .markdown-container h1,
-// .markdown-container h2,
-// .markdown-container h3,
-// .markdown-container h4,
-// .markdown-container h5,
-// .markdown-container h6
-//   color: #222
-//   line-height: 1.2
-//   margin-top: 1.5em
-//   margin-bottom: 0.5em
-
-// .markdown-container h1
-//   font-size: 2.5em
-
-// .markdown-container h2
-//   font-size: 2em
-
-// .markdown-container h3
-//   font-size: 1.75em
-
-// .markdown-container h4
-//   font-size: 1.5em
-
-// .markdown-container h5
-//   font-size: 1.25em
-
-// .markdown-container h6
-//   font-size: 1em
-
-// .markdown-container p
-//   margin: 1em 0
-
-// .markdown-container a
-//   color: #1e90ff
-//   text-decoration: none
-
-//   &:hover
-//     text-decoration: underline
-
-// .markdown-container ul,
-// .markdown-container ol
-//   padding-left: 20px
-//   margin: 1em 0
-
-// .markdown-container li
-//   margin-bottom: 0.5em
-
-// .markdown-container blockquote
-//   margin: 1.5em 0
-//   padding: 10px 20px
-//   background-color: #f9f9f9
-//   border-left: 5px solid #ccc
-//   color: #666
-//   font-style: italic
-
-// .markdown-container code
-//   background-color: #f4f4f4
-//   padding: 2px 4px
-//   border-radius: 4px
-//   font-family: 'Courier New', Courier, monospace
-
-// .markdown-container pre code
-//   display: block
-//   padding: 10px
-//   background-color: #f4f4f4
-//   overflow-x: auto
-
-// .markdown-container hr
-//   border: 0
-//   border-top: 1px solid #ccc
-//   margin: 2em 0
-
-// .markdown-container table
-//   width: 100%
-//   border-collapse: collapse
-//   margin: 1em 0
-
-// .markdown-container th,
-// .markdown-container td
-//   border: 1px solid #ddd
-//   padding: 8px
-//   text-align: left
-
-// .markdown-container th
-//   background-color: #f4f4f4
