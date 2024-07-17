@@ -17,22 +17,22 @@
         gap: 5px
         .tier-1
             border: 1px solid $tier-1-color-primary
-            background-image: url("../../../../../assets/svg/tier-1-wave-4.svg")
+            background-image: $tier-1-svg-background-image
             &:hover
                 box-shadow: 0 8px 32px 0 $tier-1-color-primary
         .tier-2
             border: 1px solid $tier-2-color-primary
-            background-image: url("../../../../../assets/svg/tier-2-wave.svg")
+            background-image: $tier-2-svg-background-image
             &:hover
                 box-shadow: 0 8px 32px 0 $tier-2-color-primary
         .tier-3
             border: 1px solid $tier-3-color-primary
-            background-image: url("../../../../../assets/svg/tier-3-wave.svg")
+            background-image: $tier-3-svg-background-image
             &:hover
                 box-shadow: 0 8px 32px 0 $tier-3-color-primary
         .tier-4
             border: 1px solid $tier-4-color-primary
-            background-image: url("../../../../../assets/svg/tier-4-wave.svg")
+            background-image: $tier-4-svg-background-image
             &:hover
                 box-shadow: 0 8px 32px 0 $tier-4-color-primary
 
@@ -48,7 +48,7 @@
         background-repeat: no-repeat
         background-size: cover
         background-position: bottom
-        animation: moveWaves 10s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite
+        // animation: moveWaves 10s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite
 
     .arcade-list-component_element-card-header
         display: flex
