@@ -12,7 +12,7 @@ export class ClipboardService {
   constructor() {
     // Підписка на події очищення буфера обміну
     this.clearClipboardTimer$.subscribe(() => {
-      this.clearClipboard();  
+      this.clearClipboard();
     });
   }
 
@@ -31,6 +31,16 @@ export class ClipboardService {
     clearTimeout(this.clipboardTimer);
   }
 
+  copy(text: string): void {
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        // alert('Посилання скопійовано: ' + link); // Сповіщення про копіювання
+      })
+      .catch((err) => {
+        console.error('Помилка при копіюванні: ', err);
+      });
+  }
   // Метод для отримання даних з буфера обміну
   getClipboardContent(): string {
     return this.clipboardContent;

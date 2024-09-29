@@ -3,6 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { MarkdownModule } from 'ngx-markdown';
 import { ActivityService } from '../../../../../services/activity/activity.service';
+import { ClipboardService } from '../../../../../services/clipboard/clipboard.service';
+import { LinkExtractorService } from '../../../../../services/link-extractor/link-extractor.service';
 
 @Component({
   selector: 'app-treasure-overview',
@@ -14,10 +16,13 @@ import { ActivityService } from '../../../../../services/activity/activity.servi
 export class TreasureOverviewComponent implements OnInit {
   activity_name: string = '';
   article_content: string = '';
+  links: string[] = [];
 
   constructor(
     private route: ActivatedRoute,
-    private ActivityService: ActivityService
+    private ActivityService: ActivityService,
+    private clipboard: ClipboardService,
+    private linkExtractorService: LinkExtractorService
   ) {}
 
   ngOnInit(): void {
@@ -34,9 +39,17 @@ export class TreasureOverviewComponent implements OnInit {
       next: (value) => {
         console.log(value);
         this.article_content = value.data.details.article_text;
+        this.links = this.linkExtractorService.extractLinks(
+          this.article_content
+        );
+        console.log(this.links);
       },
       error: (error) => alert(error.message),
       complete: () => console.log('complete'),
     });
+  }
+
+  copyLink(text: string) {
+    this.clipboard.copy(text);
   }
 }

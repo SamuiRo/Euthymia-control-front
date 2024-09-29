@@ -74,7 +74,7 @@ body,html
     font-size: 16px
   a
     color: $font-color
-  
+
 body
   z-index: -3
   background: radial-gradient(ellipse at bottom, $background-secondary 0%, $background-primary 100%)
@@ -230,6 +230,7 @@ body
       outline: none
       box-shadow: none
 
+//TODO
 .textarea
   width: fit-content
   background-color: transparent
@@ -247,6 +248,36 @@ body
   &:focus
     outline: none
     box-shadow: none
+
+//TODO
+.ol
+.li
+  appearance: none
+  text-decoration: none
+  font-family: $select-font
+  width: 140px
+  height: 40px
+  min-height: 40px
+  color: $button-color
+  padding: 12px 14px
+  display: inline-block
+  box-sizing: border-box
+  text-align: center
+  line-height: inherit
+  text-rendering: geometricprecision
+  text-transform: none
+  cursor: pointer
+  white-space: nowrap
+  &:hover
+    color: grey
+  &:active
+    color: white
+  // &:hover,
+  // &:active
+  //   background-color: initial
+  //   background-position: 0 0
+  // overflow: hidden
+  // text-overflow: ellipsis
 
 @function multiple-box-shadow ($n)
   $value: '#{random(2560)}px #{random(2560)}px #be605c'
@@ -321,7 +352,7 @@ $shadows-big: multiple-box-shadow(100)
 
 .markdown-container
   max-width: 800px
-  max-height: 800px
+  // max-height: 800px
   overflow-y: auto
   white-space: pre-wrap
   scrollbar-width: none
