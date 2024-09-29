@@ -5,11 +5,12 @@ import { RouterModule } from '@angular/router';
 
 import { ActivityService } from '../../../../services/activity/activity.service';
 import { NotificationService } from '../../../../services/notification/notification.service';
+import { CheckboxComponent } from "../../../shared/checkbox/checkbox.component";
 
 @Component({
   selector: 'app-treasure',
   standalone: true,
-  imports: [FormsModule, CommonModule, RouterModule],
+  imports: [FormsModule, CommonModule, RouterModule, CheckboxComponent],
   templateUrl: './treasure.component.html',
   styleUrl: './treasure.component.sass',
 })

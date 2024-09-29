@@ -1,0 +1,115 @@
+<div class="activity-manager-update-component">
+  <div class="activity-manager-update-list-block">
+    <div class="activity-manager-update-category-block">
+      <button
+        class="activity-manager-update-category button"
+        (click)="getTreasureList()"
+      >
+        Treasure
+      </button>
+      <button
+        class="activity-manager-update-category button"
+        (click)="getArcadeList()"
+      >
+        Arcade
+      </button>
+    </div>
+    <div class="activity-manager-update-list">
+      @for (activity of activity_list; track $index) {
+      <button
+        class="activity-manager-update-list-element"
+        (click)="onSelect(activity)"
+        [ngClass]="getTierClass(activity.tier)"
+      >
+        {{ activity.name }}
+      </button>
+      }
+    </div>
+  </div>
+  <div class="activity-manager-update-form-block">
+    <div>
+      <p>Update activity info</p>
+    </div>
+    <form
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+      class="activity-manager-update-form"
+    >
+      <div class="activity-manager-update-form-input-block">
+        <div class="activity-manager-update-form-row1">
+          <div class="activity-manager-update-form-field">
+            <label>URL:</label>
+            <input
+              formControlName="url"
+              type="text"
+              class="input"
+              placeholder="https://"
+            />
+          </div>
+          <div class="activity-manager-update-form-field">
+            <label>Category:</label>
+            <input
+              formControlName="category"
+              type="text"
+              class="input"
+              placeholder="Game, Testnet"
+            />
+          </div>
+          <div class="activity-manager-update-form-field">
+            <label for="type">Type:</label>
+            <select id="type" formControlName="type" class="select">
+              <option value="" disabled>- Select -</option>
+              <option value="Treasure">Treasure</option>
+              <option value="Arcade">Arcade</option>
+              <option value="Routine">Routine</option>
+            </select>
+          </div>
+          <div class="activity-manager-update-form-field">
+            <label>Tier:</label>
+            <input
+              formControlName="tier"
+              type="number"
+              class="input"
+              placeholder="1"
+            />
+          </div>
+        </div>
+        <div class="activity-manager-update-form-row2">
+          <div class="activity-manager-update-form-field">
+            <label>Status:</label>
+            <select formControlName="status" class="select">
+              <option value="Active">Active</option>
+              <option value="Archive">Archive</option>
+              <option value="Trash">Trash</option>
+            </select>
+          </div>
+          <div class="activity-manager-update-form-field">
+            <label>Deadline:</label>
+            <input formControlName="deadline" type="date" class="datepicker" />
+          </div>
+
+          <div class="activity-manager-update-form-field">
+            <label>Tags:</label>
+            <input
+              formControlName="tags"
+              type="text"
+              class="input"
+              placeholder="game,testnet,defi"
+            />
+          </div>
+        </div>
+        <button type="submit" class="button">Save</button>
+      </div>
+      <div class="activity-manager-update-form-area-block">
+        <div class="activity-manager-update-form-field">
+          <label>Article Text:</label>
+          <textarea formControlName="article_text" class="textarea"></textarea>
+        </div>
+        <div class="activity-manager-update-form-field">
+          <label>Description:</label>
+          <textarea formControlName="description" class="textarea"></textarea>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

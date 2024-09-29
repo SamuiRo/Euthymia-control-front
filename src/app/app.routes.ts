@@ -19,6 +19,9 @@ import { TreasureComponent } from './components/web3/sub-menu/treasure/treasure.
 import { ArcadeComponent } from './components/web3/sub-menu/arcade/arcade.component';
 import { TreasureOverviewComponent } from './components/web3/sub-menu/treasure/treasure-overview/treasure-overview.component';
 import { ArcadeOverviewComponent } from './components/web3/sub-menu/arcade/arcade-overview/arcade-overview.component';
+import { ActivityManagerComponent } from './components/dashboard/sub-dashboards/activity-manager/activity-manager.component';
+import { ActivityManagerAddComponent } from './components/dashboard/sub-dashboards/activity-manager/modules/activity-manager-add/activity-manager-add.component';
+import { ActivityManagerUpdateComponent } from './components/dashboard/sub-dashboards/activity-manager/modules/activity-manager-update/activity-manager-update.component';
 
 export const routes: Routes = [
   { path: '', component: LendingComponent },
@@ -33,7 +36,25 @@ export const routes: Routes = [
         path: 'dashboard',
         component: DashboardComponent,
         children: [
-          { path: '', redirectTo: 'twitter', pathMatch: 'full' },
+          { path: '', redirectTo: 'activitymanager', pathMatch: 'full' },
+          {
+            path: 'activitymanager',
+            title: 'Activity Manager',
+            component: ActivityManagerComponent,
+            children: [
+              { path: '', redirectTo: 'add', pathMatch: 'full' },
+              {
+                path: 'add',
+                title: 'Add Activity',
+                component: ActivityManagerAddComponent,
+              },
+              {
+                path: 'update',
+                title: 'Update Activity',
+                component: ActivityManagerUpdateComponent,
+              },
+            ],
+          },
           {
             path: 'twitter',
             title: 'Twitter',

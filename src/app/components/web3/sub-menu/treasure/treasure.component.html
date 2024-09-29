@@ -24,6 +24,11 @@
         </div>
         <div class="treasure-list-component_element-card-footer">
           <!-- <p>{{ item.createdAt | date : "dd/MM/yy" }}</p> -->
+          <!-- <app-checkbox
+            [checked]="false"
+            [checkboxId]="'customCheckbox' + i"
+            (checkboxChange)="onCheckboxChange($event, item)"
+          ></app-checkbox> -->
           @if (item.details.article_text) {<a routerLink="{{ item.project }}"
             >Details -></a
           >}

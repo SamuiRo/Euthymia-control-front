@@ -9,6 +9,14 @@ import { environment } from '../../../environments/environment';
 export class ActivityService {
   constructor(private http: HttpClient) {}
 
+  add_new_activity(data: any) {
+    return this.http.post<any>(`${environment.baseUrl}/activity/add`, data);
+  }
+
+  update_activity(data: any) {
+    return this.http.put<any>(`${environment.baseUrl}/activity/update`, data);
+  }
+
   get_activity_list() {
     return this.http.get<any>(`${environment.baseUrl}/activity/list`);
   }

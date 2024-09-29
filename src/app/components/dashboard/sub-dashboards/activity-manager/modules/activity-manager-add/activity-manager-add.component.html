@@ -1,0 +1,198 @@
+<div class="activity-manager-add-component">
+  <div>
+    <p>Add new activity</p>
+  </div>
+  <div class="activity-manager-add-form-container">
+    <form
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+      class="activity-manager-add-form"
+    >
+      <div class="activity-manager-add-form-input-block">
+        <div class="activity-manager-add-form-input-row1">
+          <div class="activity-manager-form-field">
+            <label for="name">Name:</label>
+            <input
+              id="name"
+              formControlName="name"
+              [ngClass]="{
+                'is-invalid':
+                  form.get('name')?.invalid && form.get('name')?.touched
+              }"
+              class="input"
+              type="text"
+              placeholder="Pirate Nation"
+            />
+            <div
+              *ngIf="form.get('name')?.invalid && form.get('name')?.touched"
+              class="error-message"
+            >
+              Name is required.
+            </div>
+          </div>
+
+          <div class="activity-manager-form-field">
+            <label for="project">Project:</label>
+            <input
+              id="project"
+              formControlName="project"
+              class="input"
+              type="text"
+              placeholder="pirate_nation"
+              [ngClass]="{
+                'is-invalid':
+                  form.get('project')?.invalid && form.get('project')?.touched
+              }"
+            />
+          </div>
+          <div class="activity-manager-form-field">
+            <label for="url">Url:</label>
+            <input
+              id="url"
+              formControlName="url"
+              [ngClass]="{
+                'is-invalid':
+                  form.get('url')?.invalid && form.get('url')?.touched
+              }"
+              class="input"
+              type="text"
+              placeholder="https://"
+            />
+            <div
+              *ngIf="form.get('url')?.invalid && form.get('url')?.touched"
+              class="error-message"
+            >
+              Url is required.
+            </div>
+          </div>
+
+          <div class="activity-manager-form-field">
+            <label for="tags">Tags:</label>
+            <input
+              id="tags"
+              formControlName="tags"
+              [ngClass]="{
+                'is-invalid':
+                  form.get('tags')?.invalid && form.get('tags')?.touched
+              }"
+              class="input"
+              type="text"
+              placeholder="gamefi,testnet,defi"
+            />
+            <div
+              *ngIf="form.get('tags')?.invalid && form.get('tags')?.touched"
+              class="error-message"
+            >
+              Tags is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="activity-manager-add-form-input-row2">
+          <div class="activity-manager-form-field">
+            <label for="tier">Tier:</label>
+            <input
+              id="tier"
+              formControlName="tier"
+              class="input"
+              type="number"
+              [ngClass]="{
+                'is-invalid':
+                  form.get('tier')?.invalid && form.get('tier')?.touched
+              }"
+            />
+          </div>
+          <div class="activity-manager-form-field">
+            <label for="category">Category:</label>
+            <input
+              id="category"
+              formControlName="category"
+              class="input"
+              type="text"
+              placeholder="Game, Testnet"
+            />
+          </div>
+
+          <div class="activity-manager-form-field">
+            <label for="type">Type:</label>
+            <select id="type" formControlName="type" class="select">
+              <option value="" disabled selected>- Select -</option>
+              <option value="Treasure">Treasure</option>
+              <option value="Arcade">Arcade</option>
+              <option value="Routine">Routine</option>
+            </select>
+          </div>
+          <div class="activity-manager-form-field">
+            <label for="status">Status:</label>
+            <select id="status" formControlName="status" class="select">
+              <option value="" disabled>- Select -</option>
+              <option value="Active">Active</option>
+              <option value="Archive">Archive</option>
+            </select>
+          </div>
+        </div>
+        <div class="activity-manager-add-form-input-row3">
+          <div class="activity-manager-form-field">
+            <label for="deadline">Deadline:</label>
+            <input
+              id="deadline"
+              formControlName="deadline"
+              class="input"
+              type="date"
+            />
+          </div>
+        </div>
+        <button type="submit" [disabled]="form.invalid" class="button">
+          Submit
+        </button>
+      </div>
+      <div class="activity-manager-add-form-area-block">
+        <div class="activity-manager-form-field">
+          <label for="article_text">Article:</label>
+          <textarea
+            id="article_text"
+            formControlName="article_text"
+            [ngClass]="{
+              'is-invalid':
+                form.get('article_text')?.invalid &&
+                form.get('article_text')?.touched
+            }"
+            class="textarea"
+          ></textarea>
+          <div
+            *ngIf="
+              form.get('article_text')?.invalid &&
+              form.get('article_text')?.touched
+            "
+            class="error-message"
+          >
+            Article is required.
+          </div>
+        </div>
+
+        <div class="activity-manager-form-field">
+          <label for="description">Description:</label>
+          <textarea
+            id="description"
+            formControlName="description"
+            [ngClass]="{
+              'is-invalid':
+                form.get('description')?.invalid &&
+                form.get('description')?.touched
+            }"
+            class="textarea"
+          ></textarea>
+          <div
+            *ngIf="
+              form.get('description')?.invalid &&
+              form.get('description')?.touched
+            "
+            class="error-message"
+          >
+            Description is required.
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

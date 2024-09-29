@@ -1,0 +1,9 @@
+<div class="custom-checkbox-wrapper">
+  <input 
+    type="checkbox" 
+    [id]="checkboxId" 
+    [checked]="checked" 
+    (change)="onCheckboxChange($event)"
+  />
+  <label [for]="checkboxId" class="custom-checkbox"></label>
+</div>

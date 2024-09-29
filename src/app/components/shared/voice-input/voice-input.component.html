@@ -1,0 +1,6 @@
+<div>
+  <textarea [(ngModel)]="voiceText" placeholder="Текст із голосу"></textarea>
+  <br />
+  <button (click)="startVoiceRecognition()">Почати голосовий ввід</button>
+  @if (errorMessage) {<p >{{ errorMessage }}</p>}
+</div>
