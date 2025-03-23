@@ -22,6 +22,7 @@ import { ArcadeOverviewComponent } from './components/web3/sub-menu/arcade/arcad
 import { ActivityManagerComponent } from './components/dashboard/sub-dashboards/activity-manager/activity-manager.component';
 import { ActivityManagerAddComponent } from './components/dashboard/sub-dashboards/activity-manager/modules/activity-manager-add/activity-manager-add.component';
 import { ActivityManagerUpdateComponent } from './components/dashboard/sub-dashboards/activity-manager/modules/activity-manager-update/activity-manager-update.component';
+import { SteamComponent } from './components/steam/steam.component';
 
 export const routes: Routes = [
   { path: '', component: LendingComponent },
@@ -31,7 +32,7 @@ export const routes: Routes = [
     component: HomeComponent,
     children: [
       { path: 'accounts', title: 'Accounts', component: JsonCosmosComponent },
-      { path: 'items', title: 'Items', component: ItemsTableComponent },
+      { path: 'steam', title: 'Steam', component: SteamComponent },
       {
         path: 'dashboard',
         component: DashboardComponent,

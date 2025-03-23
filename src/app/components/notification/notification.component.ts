@@ -25,7 +25,7 @@ import { CommonModule } from '@angular/common';
 export class NotificationComponent {
   notifications: any = [];
 
-  constructor(private notificationService: NotificationService) {}
+  constructor(private readonly notificationService: NotificationService) {}
 
   ngOnInit(): void {
     this.notificationService.notifications$.subscribe((notifications) => {
